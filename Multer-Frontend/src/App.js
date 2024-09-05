@@ -18,7 +18,7 @@ function App() {
     getPdf();
   }, []);
   const getPdf = async () => {
-    const result = await axios.get("http://localhost:5000/get-files");
+    const result = await axios.get("https://file-upload-multer-backend.vercel.app/get-files");
     console.log(result.data.data);
     setAllImage(result.data.data);
   };
@@ -31,7 +31,7 @@ function App() {
     console.log(title, file);
 
     const result = await axios.post(
-      "http://localhost:5000/upload-files",
+      "https://file-upload-multer-backend.vercel.app/upload-files",
       formData,
       {
         headers: { "Content-Type": "multipart/form-data" },
@@ -45,7 +45,7 @@ function App() {
   };
   const showPdf = (pdf) => {
     // window.open(`http://localhost:5000/files/${pdf}`, "_blank", "noreferrer");
-    setPdfFile(`http://localhost:5000/files/${pdf}`)
+    setPdfFile(`https://file-upload-multer-backend.vercel.app/files/${pdf}`)
   };
   return (
     <div className="App">
